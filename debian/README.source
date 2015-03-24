@@ -7,7 +7,7 @@ Download the files you need
 
 Create the orig.tar.gz file:
 
-  tar -C .. -czvf ../tivsm_6.4.2.orig.tar.gz tivsm-6.4.2 --exclude ".git"
+  tar -C .. -czvf ../tivsm_7.1.1.orig.tar.gz tivsm-7.1.1 --exclude ".git" --exclude "debian"
 
 Then the package can be built as usual:
 

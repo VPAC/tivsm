@@ -1,0 +1,9 @@
+binary-without-manpage
+embedded-library
+executable-jar-without-main-class
+hardening-no-relro
+jar-not-in-usr-share
+missing-dep-on-jarwrapper
+postinst-has-useless-call-to-ldconfig
+postrm-has-useless-call-to-ldconfig
+unstripped-binary-or-object

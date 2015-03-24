@@ -15,8 +15,8 @@ extract() {
         cd "$WD"
 }
 
-VERSION="6.4.2.0"
-GVERSION="8.0.14.36"
+VERSION="7.1.1.0"
+GVERSION="8.0.14.43"
 
 mkdir build
 if [ -z "$1" ]
@@ -75,8 +75,11 @@ mv debian/tivsm-api/opt/tivoli/* debian/tivsm-api/usr/lib/tivoli
 rmdir debian/tivsm-api/opt/tivoli
 rmdir debian/tivsm-api/opt
 
+# remove unwanted script
+rm debian/tivsm-ba/etc/init.d/dsmcad
+
 # replace broken symlinks
-for i in debian/tivsm-api/usr/lib64/lib*.so
+for i in debian/tivsm-api/usr/lib64/lib*.so*
 do
     base="$(basename "$i")"
     readlink "$i"
@@ -97,7 +100,14 @@ install -m755 debian/tivsm debian/tivsm-ba/usr/bin
 find debian/tivsm-gsk/usr/lib/tivoli \( -name "*.txt" -or -name copyright \) -print0 | xargs -0 chmod 644
 find debian/tivsm-api/usr/lib/tivoli \( -name "*.txt" -or -name copyright \) -print0 | xargs -0 chmod 644
 find debian/tivsm-ba/usr/lib/tivoli  \( -name "*.txt" -or -name copyright \) -print0 | xargs -0 chmod 644
-chmod 644 debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin/*.opt debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin/configFile
+find debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin -name "*.bat" -print0 | xargs -0 chmod 644
+find debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin -name "*.vbs" -print0 | xargs -0 chmod 644
+find debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin -name "*.dll" -print0 | xargs -0 chmod 644
+find debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin -name "*.sh" -print0 | xargs -0 chmod 644
+chmod 644 debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin/*.opt
+chmod 644 debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin/configFile
+chmod 644 debian/tivsm-ba/usr/lib/tivoli/tsm/client/ba/bin/commonFunctions
+
 # Fix dodgy permisions - directories shoulod be executable
 find debian/tivsm-gsk/usr/lib/tivoli -type d -print0 | xargs -0 chmod 755
 find debian/tivsm-api/usr/lib/tivoli -type d -print0 | xargs -0 chmod 755

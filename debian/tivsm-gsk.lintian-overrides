@@ -1,0 +1,4 @@
+binary-without-manpage
+embedded-library
+hardening-no-relro
+shlib-with-executable-stack

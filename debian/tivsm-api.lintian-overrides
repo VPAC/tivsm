@@ -1,0 +1,5 @@
+codeless-jar
+embedded-library
+hardening-no-relro
+jar-not-in-usr-share
+unstripped-binary-or-object

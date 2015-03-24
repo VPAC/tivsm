@@ -3,7 +3,7 @@ Section: non-free/admin
 Priority: extra
 Maintainer: Brian May <bam@debian.org>
 Build-Depends: debhelper (>= 5), rpm
-Standards-Version: 3.9.1
+Standards-Version: 3.9.6
 
 Package: tivsm-api
 Architecture: any
@@ -15,6 +15,7 @@ Description: IBM Tivoli Storage Manager API
 Package: tivsm-ba
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, tivsm-api (= ${binary:Version}), mksh | pdksh
+Suggests: jarwrapper
 Description: Backup Archive Client
  The backup client used by TSM.
 

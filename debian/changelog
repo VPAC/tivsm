@@ -1,3 +1,9 @@
+tivsm (7.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Brian May <bam@debian.org>  Tue, 24 Mar 2015 11:26:02 +1100
+
 tivsm (6.4.2-1) unstable; urgency=low
 
   * New upstream version.
